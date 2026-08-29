@@ -912,3 +912,175 @@ img {
   .lightbox-prev { left: .5rem; }
   .lightbox-next { right: .5rem; }
 }
+
+
+
+/* =========================================================
+   INGENIUMBRIGHT FOOTER CREDIT
+========================================================= */
+/* =========================================================
+   INGENIUMBRIGHT — PREMIUM FOOTER CREDIT
+========================================================= */
+
+.footer-credit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+
+  margin-top: 2.5rem;
+
+  font-size: 0.72rem;
+}
+
+
+/* "Website crafted by" */
+
+.footer-credit-label {
+  color: rgba(255, 255, 255, 0.48);
+
+  letter-spacing: 0.04em;
+
+  white-space: nowrap;
+}
+
+
+/* IngeniumBright capsule */
+
+.ingenium-credit {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 0.5rem;
+
+  padding: 0.38rem 0.65rem 0.38rem 0.42rem;
+
+  border-radius: 999px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  background: rgba(255, 255, 255, 0.06);
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* Logo */
+
+.ingenium-mark {
+  width: 27px;
+  height: 27px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  overflow: hidden;
+}
+
+
+.ingenium-mark {
+  width: 27px;
+  height: 27px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  overflow: hidden;
+}
+
+.ingenium-mark img {
+  display: block;
+
+  width: 30px;
+  height: 30px;
+
+  max-width: 30px;
+  max-height: 30px;
+
+  object-fit: contain;
+}
+
+/* Brand name */
+
+.ingenium-name {
+  font-size: 0.72rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.04em;
+
+  white-space: nowrap;
+}
+
+
+/* Arrow */
+
+.ingenium-arrow {
+  font-size: 0.85rem;
+
+  opacity: 0.55;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+
+/* Hover */
+
+.ingenium-credit:hover {
+  transform: translateY(-2px);
+
+  background: rgba(255, 255, 255, 0.1);
+
+  border-color: rgba(255, 255, 255, 0.35);
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.18);
+}
+
+
+.ingenium-credit:hover .ingenium-arrow {
+  transform: translate(2px, -2px);
+
+  opacity: 1;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .footer-credit {
+    flex-direction: column;
+
+    gap: 0.55rem;
+
+    margin-top: 2rem;
+  }
+
+}

@@ -29,5 +29,36 @@ defineProps<{
       <span>© {{ new Date().getFullYear() }} Lashes & Brows Montréal</span>
       <span>MONTRÉAL · QUÉBEC</span>
     </div>
+<!-- Developer Credit -->
+<div class="footer-credit">
+
+  <span class="footer-credit-label">
+    Website crafted by
+  </span>
+
+  <a
+    href="https://www.ingeniumbright.com/fr"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="ingenium-credit"
+    aria-label="IngeniumBright - Technology and Web Development"
+  >
+    <span class="ingenium-mark">
+      <img
+        src="/images/LogoIB.png"
+        alt="IngeniumBright"
+      >
+    </span>
+
+    <span class="ingenium-name">
+      IngeniumBright
+    </span>
+
+    <span class="ingenium-arrow">
+      ↗
+    </span>
+  </a>
+
+</div>
   </footer>
 </template>
