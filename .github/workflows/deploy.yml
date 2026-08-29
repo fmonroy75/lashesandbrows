@@ -29,17 +29,19 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Clean npm cache
-        run: npm cache clean --force
+      - name: Setup npm
+        run: npm install -g npm@11.6.0
 
-      - name: Remove existing installation
-        run: rm -rf node_modules package-lock.json
+      - name: Verify versions
+        run: |
+          node -v
+          npm -v
 
       - name: Install dependencies
-        run: npm install --include=optional
+        run: npm ci
 
       - name: Generate Nuxt site
-        run: npm run generate
+        run: npx nuxt build --preset github_pages
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
@@ -47,13 +49,13 @@ jobs:
           path: .output/public
 
   deploy:
+    needs: build
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
     runs-on: ubuntu-latest
-
-    needs: build
 
     steps:
       - name: Deploy to GitHub Pages
