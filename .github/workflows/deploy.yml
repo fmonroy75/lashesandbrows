@@ -29,26 +29,37 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Clean npm cache
-        run: npm cache clean --force
-
+      # IMPORTANT:
+      # Do not use npm ci here because npm is skipping
+      # the platform-specific optional native packages.
       - name: Install dependencies
-        run: npm ci --include=optional
+        run: npm install --include=optional
         env:
           NPM_CONFIG_INCLUDE: optional
+          npm_config_optional: true
 
-      - name: Verify native dependencies
+      - name: Install Linux native bindings
         run: |
-          echo "Checking Rollup..."
-          npm ls @rollup/rollup-linux-x64-gnu || true
+          npm install --no-save --include=optional \
+            @rolldown/binding-linux-x64-gnu@1.2.6 \
+            @rollup/rollup-linux-x64-gnu \
+            lightningcss
 
-          echo "Checking Rolldown..."
+      - name: Verify native bindings
+        run: |
+          echo "=== Rolldown ==="
           npm ls @rolldown/binding-linux-x64-gnu || true
 
-          echo "Checking LightningCSS..."
+          echo "=== Rollup ==="
+          npm ls @rollup/rollup-linux-x64-gnu || true
+
+          echo "=== LightningCSS ==="
           npm ls lightningcss || true
 
-          echo "Checking LightningCSS Linux binding..."
+          echo "=== Rolldown files ==="
+          ls -la node_modules/@rolldown/ || true
+
+          echo "=== LightningCSS files ==="
           ls -la node_modules/lightningcss/ || true
 
       - name: Generate Nuxt site
