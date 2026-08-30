@@ -32,10 +32,11 @@ jobs:
       - name: Install dependencies
         run: npm ci --include=optional
 
+      - name: Install Linux native binding
+        run: npm install --no-save @rolldown/binding-linux-x64-gnu@1.2.6
+
       - name: Check Rolldown Linux binding
-        run: |
-          npm ls @rolldown/binding-linux-x64-gnu
-          ls -la node_modules/@rolldown/
+        run: npm ls @rolldown/binding-linux-x64-gnu
 
       - name: Generate Nuxt site
         run: npm run generate
