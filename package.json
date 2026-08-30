@@ -9,8 +9,7 @@
     "preview": "nuxt preview"
   },
   "devDependencies": {
-    "@rolldown/binding-win32-x64-msvc": "^1.2.6",
-    "nuxt": "4.4.5",
+    "nuxt": "^4.5.2",
     "vue": "3.5.0",
     "vue-router": "4.5.0"
   }
