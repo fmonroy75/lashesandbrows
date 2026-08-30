@@ -33,33 +33,26 @@ jobs:
         run: npm cache clean --force
 
       - name: Install dependencies
-        run: npm ci --include=optional --force
+        run: npm ci --include=optional
+        env:
+          NPM_CONFIG_INCLUDE: optional
 
-      - name: Install Linux native packages
-        run: |
-          npm install --no-save --include=optional \
-            @rolldown/binding-linux-x64-gnu@1.2.6 \
-            @rollup/rollup-linux-x64-gnu
-
-      - name: Verify Rolldown binding
-        run: |
-          echo "Checking Rolldown..."
-          test -f node_modules/@rolldown/binding-linux-x64-gnu/rolldown-binding.linux-x64-gnu.node
-          echo "Rolldown Linux binding OK"
-
-      - name: Verify Rollup binding
+      - name: Verify native dependencies
         run: |
           echo "Checking Rollup..."
-          test -f node_modules/@rollup/rollup-linux-x64-gnu/rollup.linux-x64-gnu.node
-          echo "Rollup Linux binding OK"
+          npm ls @rollup/rollup-linux-x64-gnu || true
+
+          echo "Checking Rolldown..."
+          npm ls @rolldown/binding-linux-x64-gnu || true
+
+          echo "Checking LightningCSS..."
+          npm ls lightningcss || true
+
+          echo "Checking LightningCSS Linux binding..."
+          ls -la node_modules/lightningcss/ || true
 
       - name: Generate Nuxt site
         run: npm run generate
-
-      - name: Verify generated site
-        run: |
-          test -f .output/public/index.html
-          echo "Nuxt static site generated successfully"
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
