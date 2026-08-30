@@ -29,21 +29,37 @@ jobs:
           node-version: 22
           cache: npm
 
+      - name: Clean npm cache
+        run: npm cache clean --force
+
       - name: Install dependencies
-        run: npm ci --include=optional
+        run: npm ci --include=optional --force
 
-      - name: Install native Linux bindings
+      - name: Install Linux native packages
         run: |
-          npm install --no-save @rolldown/binding-linux-x64-gnu@1.2.6
-          npm install --no-save @rollup/rollup-linux-x64-gnu
+          npm install --no-save --include=optional \
+            @rolldown/binding-linux-x64-gnu@1.2.6 \
+            @rollup/rollup-linux-x64-gnu
 
-      - name: Verify native bindings
+      - name: Verify Rolldown binding
         run: |
-          npm ls @rolldown/binding-linux-x64-gnu
-          npm ls @rollup/rollup-linux-x64-gnu
+          echo "Checking Rolldown..."
+          test -f node_modules/@rolldown/binding-linux-x64-gnu/rolldown-binding.linux-x64-gnu.node
+          echo "Rolldown Linux binding OK"
+
+      - name: Verify Rollup binding
+        run: |
+          echo "Checking Rollup..."
+          test -f node_modules/@rollup/rollup-linux-x64-gnu/rollup.linux-x64-gnu.node
+          echo "Rollup Linux binding OK"
 
       - name: Generate Nuxt site
         run: npm run generate
+
+      - name: Verify generated site
+        run: |
+          test -f .output/public/index.html
+          echo "Nuxt static site generated successfully"
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
@@ -56,7 +72,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     runs-on: ubuntu-latest
-
     needs: build
 
     steps:
