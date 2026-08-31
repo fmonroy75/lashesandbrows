@@ -293,50 +293,7 @@ const faq = [
       <!-- ===================================================
            SERVICES
       ==================================================== -->
-
-      <section
-        id="services"
-        class="services section-pad"
-      >
-
-        <SectionTitle
-          eyebrow="01 / SERVICES"
-          title="Precision. <em>Elegance.</em>"
-          text="A curated range of lash and brow services designed around you."
-        />
-
-
-        <div class="service-list">
-
-          <article
-            v-for="service in services"
-            :key="service.number"
-            class="service-row"
-          >
-
-            <span class="service-number">
-              {{ service.number }}
-            </span>
-
-            <h3>
-              {{ service.title }}
-            </h3>
-
-            <p>
-              {{ service.text }}
-            </p>
-
-            <span class="service-arrow">
-              ↗
-            </span>
-
-          </article>
-
-        </div>
-
-      </section>
-
-
+<ServicesSection />
 
       <!-- ===================================================
            SIGNATURE STYLES
@@ -568,60 +525,7 @@ const faq = [
       <!-- ===================================================
            BOOKING
       ==================================================== -->
-
-      <section
-        id="contact"
-        class="booking-section dark-section"
-      >
-
-        <div class="booking-inner">
-
-          <p class="eyebrow">
-            07 / YOUR NEXT LOOK
-          </p>
-
-          <h2>
-            Ready to define<br />
-            <em>your look?</em>
-          </h2>
-
-          <p>
-            Let's create something that feels completely yours.
-          </p>
-
-
-          <div class="booking-actions">
-
-            <a
-              class="booking-button light"
-              :href="`https://wa.me/${common.whatsapp}?text=Hello%20Lashes%20%26%20Brows%20Montr%C3%A9al%2C%20I%27d%20like%20to%20book%20an%20appointment.`"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-
-              <span>
-                Book via WhatsApp
-              </span>
-
-              <span class="arrow">
-                ↗
-              </span>
-
-            </a>
-
-
-            <a
-              class="contact-phone"
-              :href="`tel:${common.phone.replace(/[^0-9+]/g, '')}`"
-            >
-              {{ common.phone }}
-            </a>
-
-          </div>
-
-        </div>
-
-      </section>
+<ContactSection />
 
     </main>
 
