@@ -285,50 +285,7 @@ const faq = [
       <!-- ===================================================
            SERVICIOS
       ==================================================== -->
-
-      <section
-        id="services"
-        class="services section-pad"
-      >
-
-        <SectionTitle
-          eyebrow="01 / SERVICIOS"
-          title="Precisión. <em>Elegancia.</em>"
-          text="Una selección de servicios de pestañas y cejas diseñados para ti."
-        />
-
-
-        <div class="service-list">
-
-          <article
-            v-for="service in services"
-            :key="service.number"
-            class="service-row"
-          >
-
-            <span class="service-number">
-              {{ service.number }}
-            </span>
-
-            <h3>
-              {{ service.title }}
-            </h3>
-
-            <p>
-              {{ service.text }}
-            </p>
-
-            <span class="service-arrow">
-              ↗
-            </span>
-
-          </article>
-
-        </div>
-
-      </section>
-
-
+<ServicesSection :lang="lang" />
 
       <!-- ===================================================
            ESTILOS
@@ -563,61 +520,7 @@ const faq = [
       <!-- ===================================================
            RESERVA
       ==================================================== -->
-
-      <section
-        id="contact"
-        class="booking-section dark-section"
-      >
-
-        <div class="booking-inner">
-
-          <p class="eyebrow">
-            07 / TU PRÓXIMA MIRADA
-          </p>
-
-          <h2>
-            ¿Lista para definir<br />
-            <em>tu mirada?</em>
-          </h2>
-
-          <p>
-            Creemos juntas un resultado que se sienta completamente tuyo.
-          </p>
-
-
-          <div class="booking-actions">
-
-            <a
-              class="booking-button light"
-              :href="`https://wa.me/${common.whatsapp}?text=Hola%20Lashes%20%26%20Brows%20Montr%C3%A9al%2C%20me%20gustar%C3%ADa%20reservar%20una%20cita.`"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-
-              <span>
-                Reservar por WhatsApp
-              </span>
-
-              <span class="arrow">
-                ↗
-              </span>
-
-            </a>
-
-
-            <a
-              class="contact-phone"
-              :href="`tel:${common.phone.replace(/[^0-9+]/g, '')}`"
-            >
-              {{ common.phone }}
-            </a>
-
-          </div>
-
-        </div>
-
-      </section>
-
+<ContactSection :lang="lang"/>
     </main>
 
 
