@@ -54,32 +54,37 @@ const props = defineProps<{
         </a>
 
         <!-- GET DIRECTIONS LINK -->
-        <a
-          href="https://www.google.com/maps/dir/?api=1&destination=120+Av+Duranceau,+Lachine,+QC,+Canada"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="directions-link"
-        >
-          📍 {{ lang === 'es' ? 'Cómo llegar (120 Av Duranceau, Lachine)' : 'Get directions (120 Av Duranceau, Lachine)' }} ↗
-        </a>
-
+<a
+  href="https://www.google.com/maps/dir/?api=1&destination=Lashes%20%26%20Brows%20Montr%C3%A9al%2C%20120%20Av%20Duranceau%2C%20Lachine%2C%20QC%2C%20Canada"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="directions-link"
+>
+  📍
+  {{ lang === 'es'
+    ? 'Cómo llegar'
+    : 'Get directions'
+  }}
+  ↗
+</a>
       </div>
 
       <!-- EMBEDDED MAP -->
-      <div class="contact-map-wrap">
-        <iframe
-          src="https://maps.google.com/maps?q=120+Av+Duranceau,+Lachine,+QC,+Canada&t=&z=15&ie=UTF8&iwloc=&output=embed"
-          width="100%"
-          height="280"
-          style="border:0;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Google Maps - 120 Av Duranceau, Lachine, QC"
-          class="contact-map-iframe"
-        ></iframe>
-      </div>
+<div class="contact-map-wrap">
 
+  <iframe
+    src="https://www.google.com/maps?q=Lashes%20%26%20Brows%20Montr%C3%A9al%2C%20120%20Av%20Duranceau%2C%20Lachine%2C%20QC%2C%20Canada&output=embed"
+    width="100%"
+    height="280"
+    style="border:0;"
+    allowfullscreen
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    title="Lashes & Brows Montréal - 120 Av Duranceau, Lachine, QC"
+    class="contact-map-iframe"
+  ></iframe>
+
+</div>
     </div>
 
   </section>
