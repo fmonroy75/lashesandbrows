@@ -19,7 +19,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      NUXT_APP_BASE_URL: /lashesandbrows/
+      NUXT_APP_BASE_URL: /
 
     steps:
       - name: Checkout
@@ -66,6 +66,9 @@ jobs:
 
       - name: Generate Nuxt site
         run: npm run generate
+
+      - name: Create 404.html fallback
+        run: cp .output/public/index.html .output/public/404.html
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

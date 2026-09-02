@@ -32,10 +32,10 @@ const close = () => { open.value = false }
 <template>
   <header class="site-header" :class="{ 'is-open': open }">
     <div class="nav-wrap">
-      <a class="brand" href="#" @click="close" aria-label="Lashes & Brows Montréal">
+      <NuxtLink class="brand" :to="lang === 'es' ? '/es' : '/'" @click="close" aria-label="Lashes & Brows Montréal">
         <span class="brand-mark">L&B</span>
         <span class="brand-name">LASHES & BROWS</span>
-      </a>
+      </NuxtLink>
 
       <nav class="desktop-nav" aria-label="Primary navigation">
         <a v-for="link in links" :key="link.href" :href="link.href">{{ link.label }}</a>
