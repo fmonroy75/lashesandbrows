@@ -18,6 +18,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      NUXT_APP_BASE_URL: /lashesandbrows/
 
     steps:
       - name: Checkout
@@ -69,9 +71,6 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: .output/public
-
-  env:
-    NUXT_APP_BASE_URL: /lashesandbrows/
 
   deploy:
     environment:
